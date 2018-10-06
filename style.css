@@ -1,0 +1,19 @@
+/*Selector{
+Property:value;
+}
+*/
+
+/*body {
+  < background-image: url(car.jpg);
+  background-size: cover;
+  backface-visibility:
+}*/
+h2 {
+font-size: 40 px;
+color: red;
+text-align: center;
+}
+p {
+font-style: italic;
+border : 5 px,dashed,#440026;
+}
