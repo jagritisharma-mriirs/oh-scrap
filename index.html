@@ -1,17 +1,60 @@
+<! DOCTYPE html>
 <html>
 <head>
   <title>
     Oh! Scrap
   </title>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.5">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <style>
+  .modal-header, h4, .close {
+      background-color: #b3c4ff;
+      color:white !important;
+      text-align: center;
+      font-size: 30px;
+  }
+  .modal-footer {
+      background-color: #b3c4ff;
+  }
+  </style>
   </head>
   <body>
-    <h1><div>Oh! Scrap</div></h1>
-    <h5><div><italic>Earn by doing just nothing</italic></div></h5>
-<p>
-  <div>
-     Problem-
- This application is on the major problem of wrecked cars
+    <div class="background-image"></div>
+    <div id="boxes">
+  <div id="dialog" class="window">
+    Terms and Conditions:1.Ohscrap shall purchase all of the ferrous and non-ferrous residues generated during the Term
+by the Expositorys current and future manufacturing facilities (the “Expository&amps s Scrap”), and
+the expository shall sell expository Scrap exclusively to OhScrap during the Term.
+2.All duties, import and export fees, taxes (other than income taxes, if any, on income
+received by expository) and other governmental charges due with respect to the purchase or
+sale of expository Scrap will be paid by OhScrap.
+3.Expositor will be eligible of getting 20% of total share recevied from scrap.
+4.Once expositor has confirmed about vehicle , he can revese the action within 3 hours and if any type of information required is found
+unaccordance , minus amount will be added to the expositors account.
+5. The payment terms shall be net 15 days from OhScrap&ampss receipt of issue in expositor OhScrap account.
+    <div id="popupfoot"> <a href="#" class="close agree">I agree</a> | <a class="agree" style="color:red;" href="#">I do not agree</a> </div>
+  </div>
+  <div id="mask"></div>
+</div>
+    <header>
+      <nav>
+    <link href='https://fonts.googleapis.com/css?family=Amaranth:400' rel='stylesheet' type='text/css'>
+    <h1><strong>Oh! Scrap</strong></h1>
+    <h5>Earn by capturing</h5>
+  </nav>
+</header>
+</div>
+
+  </div>
+</div>
+<section>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
+<blockquote><p class = quotation><strong>Problem-This application is on the major problem of wrecked cars
  layed beside the
  lane  just to rot with time,Does it rot out that fast?
  Nope  it’s iron instead what happens is that as India is
@@ -19,9 +62,106 @@
  cars giving home to numerous numbers of mosquitoes and other
  diseases. What if
  I say there is a way to tackle this situation.
+ Solution -  Oh! Scrap
+This application helps people living around that car wreck.  In this website the person clicks a picture of the car which is wrecked and sends us the location via our application. We will toe that car and sell it to nearest scrap shop and the money will be distributed among the toeing van driver, the person who sent us the details and us.
+The idea is quite small but it is effective also it may be promoted by the central govt. under  the swacch bharat abhiyan.
+</strong>
+</p><blockquote>
+</section>
+  <div class="top">
+  <button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>
 </div>
-</p>
-<button type="button">Login</buttton>
-  <button type="button">SignUp</buttton>
-    </body>
-    </html>
+  <div class="container">
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+<div class="modal-dialog">
+
+<!-- Modal content-->
+<div class="modal-content">
+<div class="modal-header" style="padding:35px 50px;">
+<button type="button" class="close" data-dismiss="modal">&times;</button>
+<h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+</div>
+<div class="modal-body" style="padding:40px 50px;">
+<form role="form">
+<div class="form-group">
+<label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+<input type="text" class="form-control" id="usrname" placeholder="Enter email">
+</div>
+<div class="form-group">
+<label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+<input type="text" class="form-control" id="psw" placeholder="Enter password">
+</div>
+<div class="checkbox">
+<label><input type="checkbox" value="" checked>Remember me</label>
+</div>
+<button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+</form>
+</div>
+<div class="modal-footer">
+<button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+<p>Not a member? <a href="#">Sign Up</a></p>
+<p>Forgot <a href="#">Password?</a></p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<script>
+
+$(document).ready(function() {
+
+var id = '#dialog';
+
+//Get the screen height and width
+var maskHeight = $(document).height();
+var maskWidth = $(window).width();
+
+//Set heigth and width to mask to fill up the whole screen
+$('#mask').css({'width':maskWidth,'height':maskHeight});
+
+//transition effect
+$('#mask').fadeIn(500);
+$('#mask').fadeTo("slow",0.9);
+
+//Get the window height and width
+var winH = $(window).height();
+var winW = $(window).width();
+
+//Set the popup window to center
+$(id).css('top',  winH/2-$(id).height()/2);
+$(id).css('left', winW/2-$(id).width()/2);
+
+//transition effect
+$(id).fadeIn(2000);
+
+//if close button is clicked
+$('.window .close').click(function (e) {
+//Cancel the link behavior
+e.preventDefault();
+
+$('#mask').hide();
+$('.window').hide();
+});
+
+//if mask is clicked
+$('#mask').click(function () {
+$(this).hide();
+$('.window').hide();
+});
+
+});
+</script>
+
+<script>
+$(document).ready(function(){
+$("#myBtn").click(function(){
+$("#myModal").modal();
+});
+});
+</script>
+</body>
+</html>
